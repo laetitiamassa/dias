@@ -1,7 +1,7 @@
 // import the CSS framework
 $brand-primary: #27ae60;
-$navbar-default-brand-color: white;
-$navbar-default-link-color: white;
+$navbar-default-brand-color: #f1c40f;
+$navbar-default-link-color: #f1c40f;
 $navbar-default-bg:         #2ecc71;
 $navbar-height:             60px;
 @import "bootstrap";
@@ -94,6 +94,7 @@ section {
 
 .namefront {
   font-size: 20em;
+  color: #f1c40f;
   font-family: 'Amatic SC', cursive;
   line-height: 150px;
   padding-top: 200px;
@@ -148,7 +149,12 @@ section {
 }
 
 .bigger {
-  font-size: 2em;
+  font-size: 4em;
+  font-family: 'Amatic SC', cursive;
+}
+
+diasfont {
+  font-family: 'Amatic SC', cursive; 
 }
 
 
