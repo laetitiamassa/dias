@@ -1,3 +1,12 @@
+<% if signed_in? %>
+
+
+    <%= render "projects/stream" %>
+  
+
+
+<% else %>
+
 <div class="namefront text-center">DIAS'</div>
   <div class="baseline text-center diasred">une véritable solution pour une Afrique indépendante</div>
 <!-- <h2 class="text-center">Soutenez des projets locaux de développement<br> directement et en quelques clics</h2> -->
@@ -82,5 +91,7 @@
 
   </div>
   </div>
+
+  <% end %>
 
 

@@ -1,0 +1,66 @@
+<div class="page-header">
+    <h1>Editez votre profil</h1>
+</div>
+
+<div class="col-md-6 col-md-offset-3">
+    <%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="form-group">
+      <%= f.label :first_name, "Votre prénom" %>
+      <%= f.text_field :first_name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :last_name, "Votre nom" %>
+      <%= f.text_field :last_name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :birth_date, "Votre date de naissance" %>
+      <%= f.datetime_select :birth_date, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :birth_place, "Votre lieu de naissance" %>
+      <%= f.text_field :birth_place, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :phone , "Votre numéro de téléphone" %>
+      <%= f.text_field :phone, class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :skype, "Votre Skype handle" %>
+      <%= f.text_field :skype, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :skills, "Vos compétences" %>
+      <%= f.text_field :skills, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :contribution, "La contribution que vous souhaitez apporter" %>
+      <%= f.text_field :contribution, class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :contribution_frequency, "La fréquence de votre contribution" %>
+      <%= f.text_field :contribution_frequency, class: 'form-control' %>
+    </div>
+    
+    
+    
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Modifier mon profil', :class => "btn btn-info btn-lg" %>
+  </div>
+<% end %>
+
+</div>
+

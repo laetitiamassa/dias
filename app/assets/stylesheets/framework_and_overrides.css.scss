@@ -1,5 +1,6 @@
 // import the CSS framework
 $brand-primary: #27ae60;
+$brand-info: #f1c40f;
 $navbar-default-brand-color: #f1c40f;
 $navbar-default-link-color: #f1c40f;
 $navbar-default-bg:         #2ecc71;
@@ -79,7 +80,7 @@ section {
   background-color: #f1c40f;
   padding-bottom: 20px;
   padding-top: 20px;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .altbg-white {
@@ -105,7 +106,7 @@ section {
   font-size: 4em;
   font-family: 'Amatic SC', cursive;
   line-height: 90px;
-  padding-bottom: 70px;
+  padding-bottom: 20px;
 } 
 
 // Styles for Devise views
@@ -150,10 +151,13 @@ section {
 
 .bigger {
   font-size: 4em;
-  font-family: 'Amatic SC', cursive;
 }
 
-diasfont {
+.big {
+  font-size: 1.2em;
+}
+
+.diasfont {
   font-family: 'Amatic SC', cursive; 
 }
 

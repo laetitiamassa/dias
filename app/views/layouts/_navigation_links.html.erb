@@ -19,7 +19,9 @@
   </li>
 
 <% else %>
-   <li><%= link_to 'A propos', about_path %></li>
-  <li><%= link_to 'Connexion', new_user_session_path %></li>
-  <li><%= link_to 'Inscription', new_user_registration_path %></li>
+  <li class="big"><%= link_to 'Accueil', root_path %></li>
+  <li class="big"><%= link_to 'A propos', about_path %></li>
+  <li class="big"><%= link_to 'FAQ', faq_path %></li>
+  <li class="big"><%= link_to 'Connexion', new_user_session_path %></li>
+  <li class="big"><%= link_to 'Inscription', new_user_registration_path %></li>
 <% end %>

@@ -1,4 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1><%= @project.title %> <small><%= link_to @project.user.name, user_path(@project.user) %></small></h1>
+</div>
+<div class="row">
+	<div class= "col-md-4">
+<img alt="300x200" style="width: 100%" src="http://placehold.it/200x150">
+</div>
+<div class="col-md-8">
+	<p><%= @project.description %></p>
+</div>
+</div>
+
+
+
+
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

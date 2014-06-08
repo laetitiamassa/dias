@@ -1,30 +1,38 @@
 class ProjectsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :correct_user, :only => [:edit, :update]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.all.order('id DESC')
+    @project = current_user.projects.build if current_user
+    @user = current_user
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @user = current_user
   end
 
   # GET /projects/new
   def new
-    @project = Project.new
+    @project = current_user.projects.build
+    @user = current_user
   end
 
   # GET /projects/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
+    @user = current_user
 
     respond_to do |format|
       if @project.save
@@ -40,6 +48,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
@@ -67,8 +76,15 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
 
+    def correct_user
+      @project = current_user.projects.find_by(id: params[:id])
+      redirect_to projects_path, notice: t("Vous ne pouvez pas modifier cela") if @project.nil?
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params[:project]
+      params.require(:project).permit(:title, :description,
+                                      :country, :sector,
+                                      :budget, :funding)
     end
 end

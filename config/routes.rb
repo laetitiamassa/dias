@@ -1,9 +1,10 @@
 Dias::Application.routes.draw do
   resources :projects
+  resources :users
 
   root :to => "home#index"
   devise_for :users, :controllers => {:registrations => "registrations"}
-  resources :users
+  
 
   get "about" => "pages#about"
   get "faq" => "pages#faq"
