@@ -6,6 +6,20 @@ Dias::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}
 
   resources :users
+
+  resources :users do
+    member do
+      get :follow
+      get :unfollow
+    end
+  end
+
+  resources :projects do
+    member do
+      get :follow
+      get :unfollow
+    end
+  end
   
 
   get "about" => "pages#about"

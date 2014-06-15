@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608162930) do
+ActiveRecord::Schema.define(version: 20140615091148) do
+
+  create_table "follows", force: true do |t|
+    t.integer  "followable_id",                   null: false
+    t.string   "followable_type",                 null: false
+    t.integer  "follower_id",                     null: false
+    t.string   "follower_type",                   null: false
+    t.boolean  "blocked",         default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
+  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
 
   create_table "projects", force: true do |t|
     t.datetime "created_at"
@@ -23,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140608162930) do
     t.integer  "budget"
     t.integer  "funding"
     t.integer  "user_id"
+    t.datetime "deadline"
   end
 
   create_table "users", force: true do |t|

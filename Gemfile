@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
+gem "acts_as_follower"
 
 group :development do
   gem 'better_errors'

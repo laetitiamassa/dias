@@ -1,5 +1,50 @@
-<h1>New project</h1>
+<div class="page-header">
+  <h1>Créer un nouveau projet</h1>
+</div>
 
-<%= render 'form' %>
+<div class="col-md-8 col-md-offset-2">
+<%= simple_form_for(@project) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  	<div class="form-group">
+      <%= f.label :title, "Titre du projet" %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description, "Description du projet" %>
+      <%= f.text_area :description, rows: "7", class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :country, "Pays où sera réalisé le projet" %>
+      <%= f.text_field :country, class: 'form-control' %>
+    </div>
+  	
+  	<div class="form-group">
+      <%= f.label :sector, "Secteur" %>
+      <%= f.text_field :sector, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :budget, "Budget demandé" %>
+      <%= f.text_field :budget, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :funding, "Montant à financer" %>
+      <%= f.text_field :funding, class: 'form-control' %>
+    </div>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Créer le projet", class: "btn btn-info btn-lg" %>
+  </div>
+<% end %>
+
+</div>
+
 
 <%= link_to 'Back', projects_path %>
