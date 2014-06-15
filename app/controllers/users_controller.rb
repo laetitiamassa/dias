@@ -9,6 +9,19 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def follow
+    @user = User.find(params[:id])
+    current_user.follow(@user)
+    redirect_to :back
+  end
+
+  def unfollow
+    @user = User.find(params[:id])
+    current_user.stop_following(@user)
+    redirect_to :back
+  end
+
+
   def edit
   	@user = current_user
   end
@@ -26,7 +39,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :name, :first_name, :last_name, :birth_date, :birth_place,
     															:phone, :skype,
 															    :membership, :skills,
-															    :contribution, :contribution_frequency, :total_contribution)
+															    :contribution, :contribution_frequency, :total_contribution,
+                                  :director)
   end
 
 end

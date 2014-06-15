@@ -10,8 +10,11 @@
               <img alt="300x200" style="width: 200%" src="http://placehold.it/200x150">
             </div>
             <div class="caption">
-              <p class="lead"><%= link_to truncate(project.title, :length => 23), project %></p>
-              <p>par <%= project.user.name %></p>
+              <p ><span class="lead"><%= link_to truncate(project.title, :length => 23), project %></span>
+                <%= link_to edit_project_path(project) do %>
+                  <%= content_tag(:i, " " ,:class=> 'fa fa-edit') -%>
+                <% end %>
+              <br>par <%= link_to project.user.name_or_fullname, user_path(project.user) %></p>
               
               <p class="text-right"><i class="glyphicon glyphicon-map-marker"></i><%= project.country %></p>
             </div>
@@ -69,6 +72,10 @@
 
 </ul>
 </div>
+
+
+
+
 
 
 
