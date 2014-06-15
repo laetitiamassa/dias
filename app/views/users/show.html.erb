@@ -80,8 +80,10 @@
             </div>
             <div class="caption">
               <p ><span class="lead"><%= link_to truncate(project.title, :length => 23), project %></span>
+                <% if current_user == project.user %>
                 <%= link_to edit_project_path(project) do %>
                   <%= content_tag(:i, " " ,:class=> 'fa fa-edit') -%>
+                <% end %>
                 <% end %>
               <br>par <%= link_to project.user.name_or_fullname, user_path(project.user) %></p>
               

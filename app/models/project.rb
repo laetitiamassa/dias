@@ -2,6 +2,9 @@ class Project < ActiveRecord::Base
 	belongs_to :user
 	acts_as_followable
 
+	validates :funding, presence: true
+	validates :budget, presence: true
+
 	def total_funding
 		contribution_per_head*followers_count
 	end

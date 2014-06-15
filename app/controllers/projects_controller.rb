@@ -77,7 +77,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
@@ -90,7 +90,7 @@ class ProjectsController < ApplicationController
 
     def correct_user
       @project = current_user.projects.find_by(id: params[:id])
-      redirect_to projects_path, notice: t("Vous ne pouvez pas modifier cela") if @project.nil?
+      redirect_to root_path, notice: "Vous ne pouvez pas modifier ce projet" if @project.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
