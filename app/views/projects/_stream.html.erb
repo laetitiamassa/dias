@@ -44,15 +44,15 @@
                   </small></div>
               </div>
 
-              <% if @user == project.user %>
+              
         <br>
         <% if current_user.following?(project) %>
           <%= link_to "Ne plus contribuer", unfollow_project_path(project), class: "btn btn-default btn-block" %>
             
-    <% else %>
-      <%= link_to "Contribuer", follow_project_path(project), class: "btn btn-warning btn-block" %>
+        <% else %>
+          <%= link_to "Contribuer", follow_project_path(project), class: "btn btn-warning btn-block" %>
           
-    <% end %>
+        <% end %>
          <!-- <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %> 
         <% end %> -->
 
