@@ -14,8 +14,7 @@
                 </div>             
                 <div class="col-xs-12 col-sm-4 text-center">
                     <figure>
-                        <img src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" alt="" class="img-circle img-responsive">
-                        
+                        <p><img src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" alt="" class="img-circle img-responsive"></p>
                     </figure>
                 </div>
             </div>            
@@ -26,13 +25,30 @@
                     
                 </div>
                 <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong><%= @user.total_contribution %> €</strong></h2>                    
+                    <h2><strong>
+                      <% if @user.total_contribution.present? %>
+                      <%= @user.total_contribution %> 
+                      <% else %>
+                      0
+                      <% end %>
+                      €</strong></h2>                    
                     <p><small>Contribution totale</small></p>
                     
                 </div>
+
                 <div class="col-xs-12 col-sm-4 emphasis">
+                    <h2><strong><%= @user.saldo %> €</strong></h2>                    
+                    <p><small>solde contribution</small></p>
+                    
+                </div>
+                <div class="col-xs-12 col-sm-6 emphasis">
                     <h2><strong><%= @user.following_projects_count %></strong></h2>                    
                     <p><small>Projets soutenus</small></p>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 emphasis">
+                    <h2><strong><%= @user.projects.count %></strong></h2>                    
+                    <p><small>Projets proposés</small></p>
                 </div>
               </div>
 
@@ -121,10 +137,10 @@
               
         <br>
         <% if current_user.following?(project) %>
-          <%= link_to "Ne plus contribuer", unfollow_project_path(project), class: "btn btn-default btn-block" %>
+          <%= link_to "Ne plus contribuer pour #{project.funding} €", unfollow_project_path(project), class: "btn btn-default btn-block" %>
             
         <% else %>
-          <%= link_to "Contribuer", follow_project_path(project), class: "btn btn-warning btn-block" %>
+          <%= link_to "Contribuer pour #{project.funding} €", follow_project_path(project), class: "btn btn-warning btn-block" %>
           
         <% end %>
          <!-- <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %> -->
@@ -142,8 +158,92 @@
 
 	<h3 class="lead text-center"><%= @user.name_or_fullname %> ne soutient pas encore de projets.</h3>
 	<% end %>
+
+
+
+
+
+<!-- PROJETS PROPOSES PAR LE USER -->
+<% if @user.projects.any? %>
+<div class="page-header">
+  <h1>Projets proposés par <%= @user.name_or_fullname %></h1>
+</div>
+  
+  
+  <div class="row">
+      <ul class="thumbnails list-unstyled">
+  <% @user.projects.each do |project| %>
+
+    <li class="col-md-3">
+          <div class="thumbnail" style="padding: 0">
+            <div style="padding:4px">
+              <img alt="300x200" style="width: 200%" src="http://placehold.it/200x150">
+            </div>
+            <div class="caption">
+              <p ><span class="lead"><%= link_to truncate(project.title, :length => 23), project %></span>
+                <% if current_user == project.user %>
+                <%= link_to edit_project_path(project) do %>
+                  <%= content_tag(:i, " " ,:class=> 'fa fa-edit') -%>
+                <% end %>
+                <% end %>
+              <br>par <%= link_to project.user.name_or_fullname, user_path(project.user) %></p>
+              
+              <p class="text-right"><i class="glyphicon glyphicon-map-marker"></i><%= project.country %></p>
+            </div>
+            <div class="modal-footer" style="text-align: left">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= project.funded_portion %>%;">
+                    <!-- <span class="sr-only"><%= project.funded_portion %>% Complete</span> -->
+                </div>
+              </div>
+              <div class="row text-center">
+                <div class="col-md-4"><b><%= project.followers_count %></b><br/><small>contributeurs</small></div>
+                <div class="col-md-4"><b><%= project.budget %> €</b><br/><small>requis</small></div>
+                <div class="col-md-4">
+                  <% if project.deadline && project.coming_deadline %>
+                  <b><%= project.time_left_display %></b>
+                    <br/><small>
+                    
+                  <% if project.time_left_in_days >= 30 %>
+                      mois
+                  <% elsif project.time_left_in_hours >= 72 %>
+                      jours
+                  <% elsif project.time_left_in_hours < 1 %>
+                      minutes
+                  <% else %>
+                      heures
+                  <% end %>
+              <% else %>
+              <b>clôturé</b>
+              <% end %>
+                  </small></div>
+              </div>
+
+              
+        <br>
+        <% if current_user.following?(project) %>
+          <%= link_to "Ne plus contribuer pour #{project.funding} €", unfollow_project_path(project), class: "btn btn-default btn-block" %>
+            
+        <% else %>
+          <%= link_to "Contribuer pour #{project.funding} €", follow_project_path(project), class: "btn btn-warning btn-block" %>
+          
+        <% end %>
+         <!-- <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %> -->
+
+
+            </div>
+          </div>
+        </li>
+
+  <% end %>
+</ul>
 </div>
 
+  <% end %>
+
+</div>
+
+</div>
 
 
 

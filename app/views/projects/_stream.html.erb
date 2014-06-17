@@ -51,10 +51,10 @@
               
         <br>
         <% if current_user.following?(project) %>
-          <%= link_to "Ne plus contribuer", unfollow_project_path(project), class: "btn btn-default btn-block" %>
+          <%= link_to "Ne plus contribuer pour #{project.funding} €", unfollow_project_path(project), class: "btn btn-default btn-block" %>
             
         <% else %>
-          <%= link_to "Contribuer", follow_project_path(project), class: "btn btn-warning btn-block" %>
+          <%= link_to "Contribuer pour #{project.funding} €", follow_project_path(project), class: "btn btn-warning btn-block" %>
           
         <% end %>
          <!-- <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %> -->

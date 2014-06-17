@@ -10,4 +10,21 @@ class User < ActiveRecord::Base
   def name_or_fullname
   	name.present? ? name : "#{first_name} #{last_name}"
   end
+
+  def saldo
+    if total_contribution
+      total_contribution - global_funding
+    else
+      0
+    end
+  end
+
+  def global_funding
+    global_funding = 0
+    following_projects.each do |project|
+      global_funding += project.funding.to_i
+    end
+    global_funding
+  end
+
 end
