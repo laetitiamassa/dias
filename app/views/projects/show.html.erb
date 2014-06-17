@@ -1,18 +1,119 @@
 <div class="page-header">
-  <h1><%= @project.title %> <small><%= link_to @project.user.name, user_path(@project.user) %></small></h1>
+  <h1><%= @project.title %></h1>
 </div>
+
+
 <div class="row">
-	<div class= "col-md-4">
-<img alt="300x200" style="width: 100%" src="http://placehold.it/200x150">
+	
+
+	<div class= "col-md-7">
+		<p><img alt="300x200" style="width: 100%" src="http://placehold.it/200x150"></p>
+		
+		<div class="jumbotron">
+			<h3>Description du projet</h3>
+  		<p class="smaller"><%= simple_format(@project.description) %></p>
+		</div>
+	</div>
+
+
+
+<div class="col-md-5">
+
+
+	<div class="jumbotron text-center">
+
+		<h3><%= @project.followers_count %> 
+		<br><small>contributeurs</small></h3>
+
+		<div class="divider">
+			<h3><%= @project.total_funding %> € 
+			<br><small> récoltés sur <%= @project.budget %> € requis</small></h3>
+		</div>
+
+		<div class="divider">
+			<% if @project.deadline && @project.coming_deadline %>
+                  <h3><%= @project.time_left_display %>
+                    <small>
+                    
+                  <% if @project.time_left_in_days >= 30 %>
+                      mois restant
+                  <% elsif @project.time_left_in_hours >= 72 %>
+                      jours restant
+                  <% elsif @project.time_left_in_hours < 1 %>
+                      minutes restant
+                  <% else %>
+                      heures restant</h3>
+                  <% end %>
+              <% else %>
+              <h3>La collecte est clôturée</h3>
+              <% end %>
+		</div>
+
+ 		<div class="divider"> 
+			<h3>
+				<% if current_user.following?(@project) %>
+          <%= link_to "Ne plus contribuer", unfollow_project_path(@project), class: "btn btn-default btn-lg btn-block" %>
+            
+        <% else %>
+          <%= link_to "Contribuer pour #{@project.funding} €", follow_project_path(@project), class: "btn btn-warning btn-lg btn-block" %>
+          
+        <% end %>
+      </h3>
+    </div>
+
+  </div> <!-- fin jumbotron basic data -->
+     
+
+
+
+<div class="jumbotron">
+
+<div class="row">
+			
+      
+      <div class="col-xs-12 col-sm-8">
+      	<h3>Auteur du projet</h3>
+				<h4><%= link_to @project.user.name_or_fullname, user_path(@project.user) %>
+				<br><small><%= @project.user.country %></small></h4>
+			</div>
+
+			<div class="col-xs-12 col-sm-4 text-center">
+        <img src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" alt="" class="img-circle img-responsive">
+      </div>
+		</div>
+ </div>
+
+<div class="jumbotron">
+	<h3>Contributeurs au projet</h3>
+
+
+	<% if @project.followers.any? %>
+	<ul class="list-unstyled">
+	<% @project.followers.each do |backer| %>
+
+	<li>
+		<p>
+			<div class="row">
+			<div class="col-xs-12 col-sm-3 text-center">
+			
+                        <img src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" alt="" class="img-circle img-responsive">
+                        
+                    
+                  </div>
+                  <div class="col-xs-12 col-sm-9">
+			<h4><%= link_to backer.name_or_fullname, user_path(backer) %>
+				<br><small><%= backer.country %></small></h4>
+		</div>
+	</div>
+		</p>
+	</li>
+
+	<% end %>
+
+</ul>
+	<% end %>
+
+	</div>
+	
 </div>
-<div class="col-md-8">
-	<p><%= simple_format(@project.description) %></p>
 </div>
-</div>
-
-
-
-
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>

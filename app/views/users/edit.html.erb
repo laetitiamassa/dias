@@ -18,6 +18,11 @@
     </div>
 
     <div class="form-group">
+      <%= f.label :country, "Votre pays de résidence" %>
+      <%= f.text_field :country, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
       <%= f.label :birth_date, "Votre date de naissance" %>
       <%= f.datetime_select :birth_date, class: 'form-control' %>
     </div>
