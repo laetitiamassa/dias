@@ -84,7 +84,7 @@
       <div class="col-xs-12 col-sm-8">
       	<h3>Auteur du projet</h3>
 				<h4><%= link_to @project.user.name_or_fullname, user_path(@project.user) %>
-				<br><small><%= @project.user.country %></small></h4>
+				<br><small><%= @project.user.pays %></small></h4>
 			</div>
 
 			<div class="col-xs-12 col-sm-4 text-center">
@@ -112,7 +112,7 @@
                   </div>
                   <div class="col-xs-12 col-sm-9">
 			<h4><%= link_to backer.name_or_fullname, user_path(backer) %>
-				<br><small><%= backer.country %></small></h4>
+				<br><small><%= backer.pays %></small></h4>
 		</div>
 	</div>
 		</p>

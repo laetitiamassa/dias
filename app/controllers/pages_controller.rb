@@ -2,9 +2,11 @@ class PagesController < ApplicationController
 	before_filter :authenticate_user!, only: [:membership]
 
 	def about
+		@user = current_user
 	end
 
 	def faq
+		@user = current_user
 	end
 
 	def team
@@ -14,6 +16,7 @@ class PagesController < ApplicationController
 	end
 
 	def manifesto
+		@user = current_user
 	end
 
 	def membership

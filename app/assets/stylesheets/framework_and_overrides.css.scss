@@ -9,6 +9,12 @@ $navbar-height:             60px;
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Amatic+SC);
 
+ body {
+  padding-top: 70px;
+  padding-bottom: 50px;
+  background-color: #27ae60;
+  margin-bottom:20px;
+  }
 
 // make all images responsive by default
 img {

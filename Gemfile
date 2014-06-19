@@ -11,6 +11,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
 gem "acts_as_follower"
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :development do
   gem 'better_errors'
