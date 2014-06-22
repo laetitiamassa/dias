@@ -13,8 +13,10 @@
             <li><%= link_to 'Consultez votre profil', user_path(current_user) %></li>
             <li><%= link_to 'Editez votre profil', edit_user_path(current_user) %></li>
 
+            <% if current_user.director %>
             <li role="presentation" class="divider"></li>
             <li><%= link_to 'Administration', admin_users_path %></li>
+            <% end %>
 
             <li role="presentation" class="divider"></li>
             <li><%= link_to 'Votre compte', edit_user_registration_path %></li>

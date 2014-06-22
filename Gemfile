@@ -12,6 +12,8 @@ gem 'devise'
 gem 'simple_form'
 gem "acts_as_follower"
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
+gem 'thin'
 
 group :development do
   gem 'better_errors'
@@ -23,7 +25,6 @@ group :development do
 end
 
 group :production do
-  gem 'thin'
   gem 'pg'
   gem 'rails_12factor'
 end

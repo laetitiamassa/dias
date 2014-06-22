@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
   def edit
   	@user = current_user
+    @contribution_frequencies = User.contribution_frequencies
   end
 
   def update

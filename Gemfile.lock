@@ -15,6 +15,15 @@ GIT
       ransack (~> 1.0)
       sass-rails
 
+GIT
+  remote: git://github.com/svenfuchs/rails-i18n.git
+  revision: 88a263498764ab7d31d215cef6bf90c782b6f795
+  branch: master
+  specs:
+    rails-i18n (4.0.2)
+      i18n (~> 0.6)
+      railties (>= 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -199,6 +208,7 @@ DEPENDENCIES
   pg
   quiet_assets
   rails (= 4.0.0)
+  rails-i18n!
   rails_12factor
   rails_layout
   sass-rails (~> 4.0.0)

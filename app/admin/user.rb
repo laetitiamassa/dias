@@ -5,7 +5,7 @@ ActiveAdmin.register User do
     column :phone
     column :skype
     column :email
-    column :membership
+    column :validated
     column :director
     column :contribution
     column :contribution_frequency
@@ -24,7 +24,7 @@ ActiveAdmin.register User do
                                   :phone, :skype,
                                   :membership, :skills,
                                   :contribution, :contribution_frequency, :total_contribution,
-                                  :director
+                                  :director, :validated
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

@@ -19,6 +19,7 @@
          <%= render 'layouts/messages' %>
        </div>
           <div class="container">
+            <% if current_user.nonvalidated %><%= render 'layouts/nonvalidated' %><% end %>
             <%= yield %>
           </div>
         

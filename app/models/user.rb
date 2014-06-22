@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  CONTRIBUTION_FREQUENCIES = ["mensuelle", "trimestrielle", "annuelle"]
+
   def name_or_fullname
   	name.present? ? name : "#{first_name} #{last_name}"
   end
@@ -25,6 +27,16 @@ class User < ActiveRecord::Base
       global_funding += project.funding.to_i
     end
     global_funding
+  end
+
+  def nonvalidated
+    !validated
+  end
+
+  def self.contribution_frequencies
+    CONTRIBUTION_FREQUENCIES.map do |contribution_frequency|
+      [I18n.t("contribution_frequencies.#{contribution_frequency}"), contribution_frequency]
+    end
   end
 
 end

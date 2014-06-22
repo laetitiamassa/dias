@@ -1,3 +1,5 @@
+
+
 <div class="page-header">
   <h1><%= @project.title %>
   <small><% if current_user == @project.user %>
@@ -9,6 +11,20 @@
 
 
 <div class="row">
+
+<% if current_user.nonvalidated %>
+ <div class="alert alert-danger alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <h2 class="text-center">
+  	<strong>Attention !</strong>
+  	<br>Seuls les membres validés ont accès au détail des projets.
+  	<br><small> Votre inscription est actuellement en cours de validation par l'équipe Dias'.
+	<br>Pour plus d'info, contactez-nous via <%=link_to "projetmbad@gmail.com", "mailto:projetmbad@gmail.com" %></small></h2>
+</div>
+<% else %>
+
+
+
 	
 
 	<div class= "col-md-7">
@@ -126,4 +142,6 @@
 	</div>
 	
 </div>
+
+<% end %>
 </div>

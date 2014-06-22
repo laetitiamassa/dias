@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!
   before_filter :correct_user, :only => [:edit, :update]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
@@ -92,6 +92,8 @@ class ProjectsController < ApplicationController
       @project = current_user.projects.find_by(id: params[:id])
       redirect_to root_path, notice: "Vous ne pouvez pas modifier ce projet" if @project.nil?
     end
+
+   
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params

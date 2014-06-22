@@ -4,7 +4,7 @@ $brand-info: #2ecc71;
 $brand-warning: #f1c40f;
 $navbar-default-brand-color: #f1c40f;
 $navbar-default-link-color: #f1c40f;
-$navbar-default-bg:         #2ecc71;
+$navbar-default-bg:         #c0392b;
 $navbar-height:             60px;
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Amatic+SC);
@@ -94,6 +94,11 @@ section {
   padding-top: 30px;
   background-color: white;
   padding-bottom: 30px;
+}
+
+.front-how {
+  background-color: black;
+  color: #f1c40f;
 }
 
 .altbg-end {

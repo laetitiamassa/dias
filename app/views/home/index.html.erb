@@ -2,7 +2,12 @@
 
   <div class="page-header">
   <h1>Les projets en cours
-  <%= link_to "créer un nouveau projet", new_project_path, :class => "btn btn-warning btn-lg pull-right"  %></h1>
+  <% if current_user.director %>
+  <%= link_to "créer un nouveau projet", new_project_path, :class => "btn btn-warning btn-lg pull-right"  %>
+  <% else %>
+    <%= link_to "Suggérer un nouveau projet", "mailto:projetmbad@gmail.com", :class => "btn btn-warning btn-lg pull-right", :target => "_blank" %>
+  <% end %>
+  </h1>
 </div>
 
     <%= render "projects/stream" %>
@@ -60,19 +65,19 @@
 <div class="altbg-white">
   <div class="container">
 <div class="row text-center">
-	<h1 class="text-center big">Comment ça marche ?</h1>
+	<h1 class="text-center">Comment ça marche ?</h1>
 	<div class="col-md-4">
-		<p class="lead">Découvrez</p>
-		<p>Découvrez les projets locaux sélectionnés par l'association</p>
+		<h2>Découvrez</h2>
+		<p class="lead">Une fois inscrit vous aurez accès à la liste des projets présélectionné par l'association.Les projets sont choisis pour leurs sérieux et leurs pertinence</p>
 
 	</div>
 	<div class="col-md-4">
-		<p class="lead">Votez</p>
-		<p>Votez pour les projets que vous paraissent prioritaires</p>
+		<h2>Votez</h2>
+		<p class="lead">Votez pour les projets que vous voulez voir se réaliser. Vous décidez tous de quel projets doit avoir notre soutien en priorité</p>
 	</div>
 	<div class="col-md-4">
-		<p class="lead">Agissez</p>
-		<p>Contribuez aux projets qui vous parlent</p>
+		<h2>Suivez</h2>
+		<p class="lead">Une fois que l'échéance est passée, le(s) projet(s) ayant reçu le plus de voix sont financé et vous recevez un rapport mensuel de l'évolution.</p>
 	</div>
 </div>
 </div>
