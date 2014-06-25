@@ -8,72 +8,102 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+<p class="lead">Vous</p>
+    <div class="row">
+      
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :first_name, "Votre prénom" %>
+          <%= f.text_field :first_name, class: 'form-control input-lg' %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :last_name, "Votre nom" %>
+          <%= f.text_field :last_name, class: 'form-control input-lg' %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :avatar, "Ajoutez votre photo de profil" %>
+          <%= f.file_field :avatar, class: "form-control input-lg" %>
+        </div>
+      </div>
+    </div>
+
 
     <div class="row">
       <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :birth_place, "Votre lieu de naissance" %>
+          <%= f.text_field :birth_place, class: 'form-control input-lg' %>
+        </div>
+      </div>
 
-    <%= f.file_field :avatar %>
-    <div class="form-group">
-      <%= f.label :first_name, "Votre prénom" %>
-      <%= f.text_field :first_name, class: 'form-control input-lg' %>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :birth_date, "Votre date de naissance" %>
+          <br><%= f.datetime_select :birth_date, start_year: 1930, :order => [:day,:month,:year], class: 'form-control input-lg' %>
+        </div>
+      </div>
     </div>
 
-    <div class="form-group">
-      <%= f.label :last_name, "Votre nom" %>
-      <%= f.text_field :last_name, class: 'form-control input-lg' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :birth_place, "Votre lieu de naissance" %>
-      <%= f.text_field :birth_place, class: 'form-control input-lg' %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :birth_date, "Votre date de naissance" %>
-      <br><%= f.datetime_select :birth_date, start_year: 1930, :order => [:day,:month,:year],class: 'form-control input-sm' %>
-    </div>
-
-
-  </div>
-
-  <div class="col-md-4">
+<p class="lead">Vos coordonnées</p>
+<div class="row">
+  <div class="col-md-3">
     <div class="form-group">
       <%= f.label :pays, "Votre pays de résidence" %>
       <%= f.text_field :pays, class: 'form-control input-lg' %>
     </div>
+  </div>
 
+  <div class="col-md-3">
     <div class="form-group">
-      <%= f.label :address, "Votre adresse officielle (ne sera pas publique)" %>
+      <%= f.label :address, "Votre adresse officielle (non publique)" %>
       <%= f.text_field :address, class: 'form-control input-lg' %>
     </div>
+  </div>
 
+   <div class="col-md-3">
     <div class="form-group">
       <%= f.label :phone , "Votre numéro de téléphone" %>
       <%= f.text_field :phone, class: 'form-control input-lg' %>
     </div>
-    
+  </div>
+
+  <div class="col-md-3">
     <div class="form-group">
       <%= f.label :skype, "Votre Skype handle" %>
       <%= f.text_field :skype, class: 'form-control input-lg' %>
     </div>
-
   </div>
-  <div class="col-md-4">
+</div>
+  
+<p class="lead">Votre contribution</p>
+  <div class="row">
+    <div class="col-md-6">
     <div class="form-group">
       <%= f.label :skills, "Vos compétences" %>
       <%= f.text_field :skills, class: 'form-control input-lg' %>
     </div>
+  </div>
 
+  <div class="col-md-2">
     <div class="form-group">
-
-      <%= f.label :contribution, "La contribution que vous souhaitez apporter" %>
+      <%= f.label :contribution, "Votre cotisation" %>
       <div class="input-group"><%= f.text_field :contribution, class: 'form-control input-lg' %>
       <span class="input-group-addon">€</span></div>
     </div>
+  </div>
 
+  <div class="col-md-2">
     <div class="field form-group">
-      <%= f.label :contribution_frequency, "La fréquence de votre contribution" %>
+      <%= f.label :contribution_frequency, "fréquence" %>
       <%= f.select :contribution_frequency, @contribution_frequencies, {:include_blank => true}, {class: "form-control input-lg"} %>
+    </div>
   </div>
 
     <!-- only from admin panel
@@ -88,9 +118,9 @@
     
     
 
+<br>
 
-
-  <div class="form-actions col-md-8 col-md-offset-2">
+  <div class="form-actions col-md-6 col-md-offset-3">
     <%= f.submit 'Modifier mon profil', :class => "btn btn-warning btn-lg btn-block" %>
   </div>
 <% end %>

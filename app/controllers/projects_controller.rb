@@ -99,7 +99,8 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:title, :description,
                                       :pays, :sector,
-                                      :budget, :funding, :deadline)
+                                      :budget, :funding, :deadline,
+                                      :cover)
     end
 
   def markdown(content)

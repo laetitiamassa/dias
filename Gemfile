@@ -15,6 +15,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 gem 'thin'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'aws-sdk', '~> 1.20.0'
 
 group :development do
   gem 'better_errors'

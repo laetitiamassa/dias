@@ -2,8 +2,13 @@ class Project < ActiveRecord::Base
 	belongs_to :user
 	acts_as_followable
 
+  has_attached_file :cover, :styles => { :medium => "650x433#", :thumb => "300x200#" }, :default_url => ":style/missing_cover.png"
+  validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
+
 	validates :funding, presence: true
 	validates :budget, presence: true
+
+
 
 	def total_funding
 		contribution_per_head*followers_count
@@ -17,11 +22,15 @@ class Project < ActiveRecord::Base
 		total_funding*100/budget
 	end
 
+  def affordable(user)
+    user.saldo >= self.funding 
+  end
+
 	def coming_deadline
     deadline && deadline >= Time.now
   end
 
-  def past_deadlin
+  def past_deadline
     !coming_deadline
   end
 

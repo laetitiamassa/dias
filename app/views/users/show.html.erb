@@ -94,7 +94,7 @@
 		<li class="col-md-3">
           <div class="thumbnail" style="padding: 0">
             <div style="padding:4px">
-              <img alt="300x200" style="width: 200%" src="http://placehold.it/200x150">
+              <%= image_tag project.cover.url(:medium) %>
             </div>
             <div class="caption">
               <p ><span class="lead"><%= link_to truncate(project.title, :length => 23), project %></span>
@@ -138,13 +138,21 @@
 
               
         <br>
+      <% if project.past_deadline %>
+        <%= link_to "Période de contribution écoulée", "mailto:projetmbad@gmail.com", class: "btn btn-danger btn-block" %>
+      <% else %>
         <% if current_user.following?(project) %>
           <%= link_to "Ne plus contribuer pour #{project.funding} €", unfollow_project_path(project), class: "btn btn-default btn-block" %>
             
         <% else %>
-          <%= link_to "Contribuer pour #{project.funding} €", follow_project_path(project), class: "btn btn-warning btn-block" %>
+          <% if project.affordable(current_user) %>
+            <%= link_to "Contribuer pour #{project.funding} €", follow_project_path(project), class: "btn btn-warning btn-block" %>
+          <% else %>
+            <%= link_to "Cotisez pour contribuer", "mailto:projetmbad@gmail.com", class: "btn btn-danger btn-block" %>
+          <% end %>
           
         <% end %>
+      <% end %>
          <!-- <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %> -->
 
 
@@ -179,7 +187,7 @@
     <li class="col-md-3">
           <div class="thumbnail" style="padding: 0">
             <div style="padding:4px">
-              <img alt="300x200" style="width: 200%" src="http://placehold.it/200x150">
+              <%= image_tag project.cover.url(:medium) %>
             </div>
             <div class="caption">
               <p ><span class="lead"><%= link_to truncate(project.title, :length => 23), project %></span>
@@ -223,13 +231,21 @@
 
               
         <br>
+      <% if project.past_deadline %>
+        <%= link_to "Période de contribution écoulée", "mailto:projetmbad@gmail.com", class: "btn btn-danger btn-block" %>
+      <% else %>
         <% if current_user.following?(project) %>
           <%= link_to "Ne plus contribuer pour #{project.funding} €", unfollow_project_path(project), class: "btn btn-default btn-block" %>
             
         <% else %>
-          <%= link_to "Contribuer pour #{project.funding} €", follow_project_path(project), class: "btn btn-warning btn-block" %>
+          <% if project.affordable(current_user) %>
+            <%= link_to "Contribuer pour #{project.funding} €", follow_project_path(project), class: "btn btn-warning btn-block" %>
+          <% else %>
+            <%= link_to "Cotisez pour contribuer", "mailto:projetmbad@gmail.com", class: "btn btn-danger btn-block" %>
+          <% end %>
           
         <% end %>
+      <% end %>
          <!-- <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %> -->
 
 

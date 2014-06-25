@@ -73,6 +73,17 @@ Dias::Application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+  #to work with paperclip and AWS
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :bucket => ENV['AWS_BUCKET'],
+  :s3_credentials => {
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
+
+  #for email notifications
   config.action_mailer.smtp_settings = {
     :address   => "smtp.mandrillapp.com",
     :port      => 587,
