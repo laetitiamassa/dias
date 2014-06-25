@@ -104,7 +104,7 @@
 			</div>
 
 			<div class="col-xs-12 col-sm-4 text-center">
-        <img src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" alt="" class="img-circle img-responsive">
+        <%= image_tag @project.user.avatar.url(:thumb), :class => "img-circle img-responsive" %>
       </div>
 		</div>
  </div>
@@ -122,7 +122,7 @@
 			<div class="row">
 			<div class="col-xs-12 col-sm-3 text-center">
 			
-                        <img src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" alt="" class="img-circle img-responsive">
+                        <%= image_tag backer.avatar.url(:thumb), :class => "img-circle img-responsive" %>
                         
                     
                   </div>

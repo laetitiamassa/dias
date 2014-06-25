@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     															:phone, :skype,
 															    :membership, :skills,
 															    :contribution, :contribution_frequency, :total_contribution,
-                                  :director)
+                                  :director, :avatar)
   end
 
 end

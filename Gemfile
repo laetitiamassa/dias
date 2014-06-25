@@ -14,6 +14,7 @@ gem "acts_as_follower"
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 gem 'thin'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 group :development do
   gem 'better_errors'
