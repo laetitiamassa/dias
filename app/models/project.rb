@@ -7,6 +7,10 @@ class Project < ActiveRecord::Base
 
 	validates :funding, presence: true
 	validates :budget, presence: true
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :pays, presence: true
+  validates :deadline, presence: true
 
 
 
