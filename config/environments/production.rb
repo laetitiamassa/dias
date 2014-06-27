@@ -87,11 +87,14 @@ Dias::Application.configure do
   config.action_mailer.smtp_settings = {
     :address   => "smtp.mandrillapp.com",
     :port      => 587,
+    :enable_starttls_auto => true, # detects and uses STARTTLS
     :user_name => ENV["MANDRILL_USERNAME"],
-    :password  => ENV["MANDRILL_APIKEY"]
+    :password  => ENV["MANDRILL_APIKEY"],
+    :authentication => 'plain',
+    :domain => 'mbadias.com'
   }
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'example.com' }
+  config.action_mailer.default_url_options = { :host => 'mbadias.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false

@@ -8,6 +8,7 @@ ActiveAdmin.register Project do
     column :budget
     column :funding
     column :deadline
+    actions
   end
 
   permit_params :title, :description,
