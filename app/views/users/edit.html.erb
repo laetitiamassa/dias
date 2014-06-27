@@ -112,7 +112,9 @@
   <div class="col-md-2">
     <div class="field form-group">
       <%= f.label :contribution_frequency, "fréquence" %>
-      <%= f.select :contribution_frequency, @contribution_frequencies, {:include_blank => true}, {class: "form-control input-lg"} %>
+      
+      <%= f.select :contribution_frequency, @contribution_frequencies, {:selected => params[:contribution_frequency]}, {class: "form-control input-lg"} %>
+    
     </div>
   </div>
 
