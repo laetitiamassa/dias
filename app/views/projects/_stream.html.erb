@@ -17,7 +17,9 @@
                 <% end %>
               <br>par <%= link_to project.user.name_or_fullname, user_path(project.user) %></p>
               
-              <p class="text-right"><i class="glyphicon glyphicon-map-marker"></i><%= project.pays %></p>
+              <p class="text-right">
+                <i class="glyphicon glyphicon-map-marker"></i><%= project.pays %>
+                <br><i class="glyphicon glyphicon-cog"></i> <%= project.sector %></p>
             </div>
             <div class="modal-footer" style="text-align: left">
               <div class="progress">

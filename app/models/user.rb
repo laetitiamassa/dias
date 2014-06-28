@@ -10,15 +10,15 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "300x300#", :thumb => "100x100#" }, :default_url => ":style/missing_avatar.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :birth_date, presence: true
-  validates :birth_place, presence: true
-  validates :pays, presence: true
-  validates :address, presence: true
-  validates :phone, presence: true
-  validates :skype, presence: true
-  validates :contribution, presence: true
+  #validates :first_name, presence: true
+  #validates :last_name, presence: true
+  #validates :birth_date, presence: true
+  #validates :birth_place, presence: true
+  #validates :pays, presence: true
+  #validates :address, presence: true
+  #validates :phone, presence: true
+  #validates :skype, presence: true
+  #validates :contribution, presence: true
 
   CONTRIBUTION_FREQUENCIES = ["mensuelle", "trimestrielle", "annuelle"]
 

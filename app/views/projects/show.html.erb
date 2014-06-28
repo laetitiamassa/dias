@@ -31,6 +31,9 @@
 		<p><%= image_tag @project.cover.url(:medium), class: "img-rounded" %></p>
 		
 		<div class="jumbotron">
+      <h5 class="text-right"><i class="glyphicon glyphicon-map-marker"></i> <%= @project.pays %>
+        </h5>
+      <h5 class="text-right"><i class="glyphicon glyphicon-cog"></i> <%= @project.sector %></h5>
 			<h3>Description du projet</h3>
   		<p class="smaller"><%= simple_format(@project.description) %></p>
 		</div>
@@ -43,11 +46,11 @@
 
 	<div class="jumbotron text-center">
 
-		<h3><%= @project.followers_count %> 
+		<h3><i class="glyphicon glyphicon-user pull-left"></i> <%= @project.followers_count %> 
 		<br><small>contributeurs</small></h3>
 
 		<div class="divider">
-			<h3><%= @project.total_funding %> € 
+			<h3><i class="glyphicon glyphicon-euro pull-left"></i> <%= @project.total_funding %> € 
 			<br><small> récoltés sur <%= @project.budget %> € requis</small></h3>
 			<div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= @project.funded_portion %>%;">
@@ -58,7 +61,7 @@
 
 		<div class="divider">
 			<% if @project.deadline && @project.coming_deadline %>
-                  <h3><%= @project.time_left_display %>
+                  <h3><i class="glyphicon glyphicon-time pull-left"></i> <%= @project.time_left_display %>
                     <small>
                     
                   <% if @project.time_left_in_days >= 30 %>
@@ -71,7 +74,7 @@
                       heures restant</h3>
                   <% end %>
               <% else %>
-              <h3>La collecte est clôturée</h3>
+              <h3><i class="glyphicon glyphicon-time pull-left"></i> La collecte est clôturée</h3>
               <% end %>
 		</div>
 
