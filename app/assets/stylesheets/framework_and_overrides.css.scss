@@ -8,6 +8,7 @@ $navbar-default-bg:         #c0392b;
 $navbar-height:             60px;
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Amatic+SC);
+@import url(http://fonts.googleapis.com/css?family=Hammersmith+One|Pacifico);
 
  body {
   padding-top: 70px;
@@ -108,15 +109,19 @@ section {
 .namefront {
   font-size: 20em;
   color: #f1c40f;
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Hammersmith One', sans-serif;
   line-height: 150px;
   padding-top: 200px;
   padding-bottom: 15px;
 }  
 
+.manifesto {
+  padding-top: 100px;
+}
+
 .baseline {
   font-size: 4em;
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Pacifico', cursive;
   line-height: 90px;
   padding-bottom: 20px;
 } 
@@ -182,7 +187,7 @@ section {
 }
 
 .diasfont {
-  font-family: 'Amatic SC', cursive; 
+  font-family: 'Hammersmith One', sans-serif; 
 }
 
 

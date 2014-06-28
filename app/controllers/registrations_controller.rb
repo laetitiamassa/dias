@@ -9,4 +9,9 @@ class RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     edit_user_path(@user)
   end
+
+  def create
+    super
+    UserMailer.welcome_email(@user).deliver unless @user.invalid?
+  end
 end
