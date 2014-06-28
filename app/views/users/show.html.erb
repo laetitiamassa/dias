@@ -139,7 +139,7 @@
               
         <br>
       <% if project.past_deadline %>
-        <%= link_to "Période de contribution écoulée", "mailto:projetmbad@gmail.com", class: "btn btn-danger btn-block" %>
+        <%= link_to "Période de contribution écoulée", "#", class: "btn btn-danger btn-block", :disabled => true %>
       <% else %>
         <% if current_user.following?(project) %>
           <%= link_to "Ne plus contribuer pour #{project.funding} €", unfollow_project_path(project), class: "btn btn-default btn-block" %>
@@ -148,7 +148,7 @@
           <% if project.affordable(current_user) %>
             <%= link_to "Contribuer pour #{project.funding} €", follow_project_path(project), class: "btn btn-warning btn-block" %>
           <% else %>
-            <%= link_to "Cotisez pour contribuer", "mailto:projetmbad@gmail.com", class: "btn btn-danger btn-block" %>
+            <%= link_to "Cotisez pour contribuer", "mailto:projetmbad@gmail.com", class: "btn btn-danger btn-block", :disabled => true %>
           <% end %>
           
         <% end %>
@@ -232,7 +232,7 @@
               
         <br>
       <% if project.past_deadline %>
-        <%= link_to "Période de contribution écoulée", "mailto:projetmbad@gmail.com", class: "btn btn-danger btn-block" %>
+        <%= link_to "Période de contribution écoulée", "mailto:projetmbad@gmail.com", class: "btn btn-danger btn-block", :disabled => true %>
       <% else %>
         <% if current_user.following?(project) %>
           <%= link_to "Ne plus contribuer pour #{project.funding} €", unfollow_project_path(project), class: "btn btn-default btn-block" %>
@@ -241,7 +241,7 @@
           <% if project.affordable(current_user) %>
             <%= link_to "Contribuer pour #{project.funding} €", follow_project_path(project), class: "btn btn-warning btn-block" %>
           <% else %>
-            <%= link_to "Cotisez pour contribuer", "mailto:projetmbad@gmail.com", class: "btn btn-danger btn-block" %>
+            <%= link_to "Cotisez pour contribuer", "mailto:projetmbad@gmail.com", class: "btn btn-danger btn-block", :disabled => true %>
           <% end %>
           
         <% end %>
