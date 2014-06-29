@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
     @user = user
-    @url  = 'http://mbadias.com/users/sign_up'
+    @url  = 'http://www.mbadias.com'
     mail(
     	to: @user.email, 
     	subject: "Bienvenue sur Dias"

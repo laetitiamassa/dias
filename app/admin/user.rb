@@ -12,7 +12,6 @@ ActiveAdmin.register User do
     column :total_contribution
     column :skills
     column :birth_date
-    column :birth_date
     column :birth_place
     column :pays
     column :address 
