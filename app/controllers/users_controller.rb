@@ -26,10 +26,13 @@ class UsersController < ApplicationController
   def edit
   	@user = current_user
     @contribution_frequencies = User.contribution_frequencies
+    @genders = User.genders
   end
 
   def update
   	@user = User.find(params[:id])
+    @contribution_frequencies = User.contribution_frequencies
+    @genders = User.genders
     if @user.update(user_params)
       redirect_to @user, notice: "Votre profil a bien ete mis a jour"
     else
@@ -43,7 +46,7 @@ class UsersController < ApplicationController
     															:prefix, :phone, :skype,
 															    :membership, :skills,
 															    :contribution, :contribution_frequency, :total_contribution,
-                                  :director, :avatar)
+                                  :director, :avatar, :gender)
   end
 
 end

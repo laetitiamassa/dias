@@ -12,7 +12,7 @@
 
 <div class="row">
 
-<% if current_user.nonvalidated %>
+<% if !current_user.nonvalidated %>
  <div class="alert alert-danger alert-dismissable">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   <h2 class="text-center">
@@ -34,7 +34,11 @@
       <h5 class="text-right"><i class="glyphicon glyphicon-map-marker"></i> <%= @project.pays %>
         </h5>
       <h5 class="text-right"><i class="glyphicon glyphicon-cog"></i> <%= @project.sector %></h5>
-			<h3>Description du projet</h3>
+			<h3>Description du projet
+      <%= link_to @project.link, :target => "_blank" do %>
+        <%= content_tag(:i, " En savoir plus sur ce projet", :class=> 'fa fa-info-circle btn btn-default pull-right') if @project.link.present? -%>
+      <% end %>   
+      </h3>
   		<p class="smaller"><%= simple_format(@project.description) %></p>
 		</div>
 	</div>

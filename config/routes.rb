@@ -30,4 +30,5 @@ Dias::Application.routes.draw do
   get "partners" => "pages#partners"
   get "manifesto" => "pages#manifesto"
   get "membership" => "pages#membership"
+  get "fonctionnement" => "pages#fonctionnement"
 end

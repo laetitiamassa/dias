@@ -3,6 +3,9 @@ fr:
     mensuelle: "par mois"
     trimestrielle: "par trimestre"
     annuelle: "par an"
+  genders:
+    feminin: "féminin"
+    masculin: "masculin"
     
   language: "FR"
   french: "Français"

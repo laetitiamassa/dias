@@ -21,5 +21,9 @@ class PagesController < ApplicationController
 
 	def membership
 	end
+
+	def fonctionnement
+		@user = current_user
+	end
 	
 end

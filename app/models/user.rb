@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   #validates :contribution, presence: true
 
   CONTRIBUTION_FREQUENCIES = ["mensuelle", "trimestrielle", "annuelle"]
+  GENDERS = ["feminin", "masculin"]
 
   def name_or_fullname
   	name.present? ? name : "#{first_name} #{last_name}"
@@ -49,6 +50,12 @@ class User < ActiveRecord::Base
   def self.contribution_frequencies
     CONTRIBUTION_FREQUENCIES.map do |contribution_frequency|
       [I18n.t("contribution_frequencies.#{contribution_frequency}"), contribution_frequency]
+    end
+  end
+
+  def self.genders
+    GENDERS.map do |gender|
+      [I18n.t("genders.#{gender}"), gender]
     end
   end
 

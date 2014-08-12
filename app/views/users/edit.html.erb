@@ -4,7 +4,7 @@
 
 <div class="alert alert-info alert-dismissable">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-  <p><strong>Attention !</strong> Tous les champs doivent être remplis</p>
+  <p><strong>Attention !</strong> Les champs marqués d'un astérisque (<span class="diasred">*</span>) doivent être remplis</p>
 </div>
 
 </div>
@@ -24,28 +24,36 @@
 
       <div class="col-md-4">
         <div class="form-group">
-          <%= f.label :first_name, "Votre prénom" %>
+          <%= f.label :first_name, "Votre prénom" %><span class="diasred"> (*)</span>
           <%= f.text_field :first_name, class: 'form-control input-lg' %>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="form-group">
-          <%= f.label :last_name, "Votre nom" %>
+          <%= f.label :last_name, "Votre nom" %><span class="diasred"> (*)</span>
           <%= f.text_field :last_name, class: 'form-control input-lg' %>
         </div>
       </div>
 
+      <div class="col-md-4 form-group">
+      <%= f.label :gender, "Votre sexe" %><span class="diasred"> (*)</span>
+      <%= f.select :gender, @genders, {:selected => params[:gender]}, {class: "form-control input-lg"} %>
+    
+    </div>
+
+      
+    </div>
+
+
+    <div class="row">
       <div class="col-md-4">
         <div class="form-group">
           <%= f.label :avatar, "Ajoutez votre photo de profil" %>
           <%= f.file_field :avatar, class: "form-control input-lg" %>
         </div>
       </div>
-    </div>
 
-
-    <div class="row">
       <div class="col-md-4">
         <div class="form-group">
           <%= f.label :birth_place, "Votre lieu de naissance" %>
@@ -55,7 +63,7 @@
 
       <div class="col-md-4">
         <div class="form-group">
-          <%= f.label :birth_date, "Votre date de naissance" %>
+          <%= f.label :birth_date, "Votre date de naissance" %><span class="diasred"> (*)</span>
           <br><%= f.date_select :birth_date, start_year: 1930, :order => [:day,:month,:year], class: 'form-control input-lg' %>
         </div>
       </div>
@@ -65,7 +73,7 @@
 <div class="row">
   <div class="col-md-3">
     <div class="form-group">
-      <%= f.label :pays, "Votre pays de résidence" %>
+      <%= f.label :pays, "Votre ville de résidence" %><span class="diasred"> (*)</span>
       <%= f.text_field :pays, class: 'form-control input-lg' %>
     </div>
   </div>
@@ -145,7 +153,7 @@
 
   <div class="form-actions col-md-6 col-md-offset-3">
     <div class="alert alert-warning alert-dismissable text-center">
-      Rappel : remplissez complètement votre profil, pour le voir validé.
+      Rappel : remplissez tous les champs marqués d'un astérisque <span class="diasred"> (*)</span>.
     </div>
     <%= f.submit 'Modifier mon profil', :class => "btn btn-warning btn-lg btn-block" %>
   </div>
